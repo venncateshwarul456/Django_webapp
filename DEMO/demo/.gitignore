@@ -1,0 +1,7 @@
+venv/
+_pycashe_
+*.pyc
+db.sqlite3
+.env
+staticfiles/
+*.log

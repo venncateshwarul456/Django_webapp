@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block title %}
+Home
+{% endblock %}
+
+{% block content %}
+<h2>Welcome, {{ username }} 👋</h2>
+
+<p>This is the home page rendered using the Jinja templating engine.</p>
+
+<h3>Student List</h3>
+
+{% if students %}
+    <ul>
+        {% for student in students %}
+            <li>
+                <strong>{{ student.name }}</strong>  
+                (Age: {{ student.age }}, Email: {{ student.email }})
+            </li>
+        {% endfor %}
+    </ul>
+{% else %}
+    <p>No students found.</p>
+{% endif %}
+{% endblock %}
+
+{% block scripts %}
+<script>
+    console.log("Home page loaded successfully");
+</script>
+{% endblock %}

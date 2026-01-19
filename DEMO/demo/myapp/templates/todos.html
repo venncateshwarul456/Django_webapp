@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+{% block title %}Todo List{% endblock %}
+
+{% block content %}
+<h2>My Todo List</h2>
+
+<table border="1" cellpadding="8" cellspacing="0">
+    <tr>
+        <th>Title</th>
+        <th>Description</th>
+        <th>Status</th>
+        <th>Created</th>
+    </tr>
+
+    {% for todo in todos %}
+    <tr>
+        <td>{{ todo.title }}</td>
+        <td>{{ todo.description }}</td>
+        <td>
+            {% if todo.is_completed %}
+                ✅ Completed
+            {% else %}
+                ⏳ Pending
+            {% endif %}
+        </td>
+        <td>{{ todo.created_at }}</td>
+    </tr>
+    {% empty %}
+    <tr>
+        <td colspan="4">No todo items found</td>
+    </tr>
+    {% endfor %}
+</table>
+
+{% endblock %}
